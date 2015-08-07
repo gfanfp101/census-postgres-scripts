@@ -9,6 +9,6 @@ sudo apt-get install -y xfsprogs
 sudo mkfs.xfs /dev/xvdf
 
 # Add to fstab and mount XFS filesystem
-echo "/dev/xvdf /vol xfs noatime 0 0" | sudo tee -a /etc/fstab
-sudo mkdir -m 000 /vol
-sudo mount /vol
+echo "/dev/xvdf /mnt xfs noatime 0 0" | sudo tee -a /etc/fstab
+sudo mkdir -m 000 /mnt
+sudo mount /mnt

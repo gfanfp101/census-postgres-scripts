@@ -9,10 +9,10 @@ fi
 
 apt-get update && apt-get install -y postgresql postgis
 /etc/init.d/postgresql stop
-mkdir /vol/postgresql
-sed -i "s/data_directory = '\/var\/lib\/postgresql\/9.3\/main'/data_directory = '\/vol\/postgresql\/9.3\/main'/" /etc/postgresql/9.3/main/postgresql.conf
-mv /var/lib/postgresql/9.3 /vol/postgresql/
-chown -R postgres:postgres /vol/postgresql
+mkdir /mnt/postgresql
+sed -i "s/data_directory = '\/var\/lib\/postgresql\/9.3\/main'/data_directory = '\/mnt\/postgresql\/9.3\/main'/" /etc/postgresql/9.3/main/postgresql.conf
+mv /var/lib/postgresql/9.3 /mnt/postgresql/
+chown -R postgres:postgres /mnt/postgresql
 /etc/init.d/postgresql start
 
 sudo -u postgres psql -c "CREATE ROLE census WITH NOSUPERUSER LOGIN UNENCRYPTED PASSWORD 'censuspassword';"
